@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/HR%20Software%20for%20Startups%20-%20Blog%20B.dc.html" }
+  ]
+}

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/hrone-design-system-5b2d96e5-f50e-4ded-a852-0398ecf8521a/colors_and_type.css">
+<script src="_ds/hrone-design-system-5b2d96e5-f50e-4ded-a852-0398ecf8521a/_ds_bundle.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #FFFCF3; -webkit-font-smoothing: antialiased; }
+  a { color: #02563d; text-decoration: none; border-bottom: 1px solid rgba(2,86,61,0.28); }
+  a:hover { color: #167152; border-bottom-color: #167152; }
+  ::selection { background: #caddd5; }
+  @media (max-width: 1340px) {
+    [data-shell] { grid-template-columns: 200px minmax(0,1fr) 288px !important; gap: 40px !important; }
+    [data-pad] { padding-left: 28px !important; padding-right: 28px !important; }
+  }
+  @media (max-width: 1140px) {
+    [data-shell] { grid-template-columns: 190px minmax(0,1fr) !important; gap: 36px !important; }
+    [data-rail] { display: none !important; }
+  }
+  @media (max-width: 1140px) {
+    [data-headline] { grid-column: 2 / 3 !important; }
+  }
+  @media (max-width: 880px) {
+    [data-headline] { grid-column: 1 / 2 !important; }
+  }
+  @media (max-width: 1180px) {
+    [data-ctagrid] { grid-template-columns: minmax(0,1fr) !important; gap: 28px !important; }
+    [data-ctagrid] > div:last-child { max-width: 340px; }
+  }
+  @media (max-width: 880px) {
+    [data-shell] { grid-template-columns: minmax(0,1fr) !important; }
+    [data-toc] { display: none !important; }
+    [data-pad] { padding-left: 20px !important; padding-right: 20px !important; }
+    [data-grid2] { grid-template-columns: minmax(0,1fr) !important; }
+  }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="background:#FFFCF3;color:#272727;font:400 16px/1.6 'Public Sans',system-ui,sans-serif;min-height:100vh">
+
+  <header style="position:sticky;top:0;z-index:40;background:rgba(255,255,255,0.88);backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid #e4e4e4">
+    <div data-pad="1" style="max-width:1400px;margin:0 auto;padding:0 40px;height:64px;display:flex;align-items:center;gap:32px">
+      <a href="https://hrone.cloud" style="border:0;display:flex;align-items:center"><img src="uploads/log.png" alt="HROne" style="height:26px;width:auto;display:block"></a>
+      <nav style="margin-left:auto;display:flex;gap:26px;align-items:center;font:500 14px/1 'Public Sans',sans-serif">
+        <a href="https://hrone.cloud/hr-software/" style="color:#535353;border:0">HR Software</a>
+        <a href="https://hrone.cloud/pricing/" style="color:#535353;border:0">Pricing</a>
+        <a href="https://hrone.cloud/one-ai" style="color:#535353;border:0">AI for HRs</a>
+        <a href="https://hrone.cloud/blog" style="color:#02563d;border:0;font-weight:600">Resources</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px">
+        <a href="https://app.hrone.cloud/login" style="color:#535353;border:0;font:500 14px/1 'Public Sans',sans-serif">Login</a>
+        <a href="https://hrone.cloud/pricing/" style="border:0;background:#02563d;color:#fff;font:500 14px/1 'Public Sans',sans-serif;padding:11px 18px;border-radius:10px;transition:background 140ms" style-hover="background:#167152">Book a demo</a>
+      </div>
+    </div>
+    <div style="height:2px;background:#e4e4e4">
+      <div style="{{ progressStyle }}" hint-placeholder-val="{{ true }}"></div>
+    </div>
+  </header>
+
+  <div data-pad="1" style="max-width:1400px;margin:0 auto;padding:22px 40px 22px">
+    <nav style="display:flex;gap:10px;align-items:center;font:400 13px/1.5 'Public Sans',sans-serif;color:#8d8d8d;flex-wrap:wrap">
+      <a href="https://hrone.cloud" style="color:#8d8d8d;border:0">Home</a>
+      <span style="color:#c7c7c7">&rsaquo;</span>
+      <a href="https://hrone.cloud/blog/" style="color:#8d8d8d;border:0">Blog</a>
+      <span style="color:#c7c7c7">&rsaquo;</span>
+      <a href="https://hrone.cloud/blog/" style="color:#8d8d8d;border:0">HR Software</a>
+      <span style="color:#c7c7c7">&rsaquo;</span>
+      <span style="color:#02563d">10 Best HR Software for Startups Scaling from 10 to 200 Employees</span>
+    </nav>
+  </div>
+
+  <div data-pad="1" style="max-width:1400px;margin:0 auto;padding:26px 40px 96px">
+    <div data-shell="1" style="display:grid;grid-template-columns:232px minmax(0,1fr) 312px;gap:56px;align-items:start">
+
+      <aside data-toc="1" style="position:sticky;top:96px;max-height:calc(100vh - 130px);overflow:auto;padding-bottom:8px">
+        <p style="margin:0 0 14px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#8d8d8d">In this article</p>
+        <nav style="display:flex;flex-direction:column;border-left:0">
+          <sc-for list="{{ toc }}" as="item" hint-placeholder-count="8">
+            <a href="{{ item.href }}" style="{{ item.style }}">{{ item.label }}</a>
+          </sc-for>
+        </nav>
+        <div style="margin-top:24px;padding-top:20px;border-top:1px solid #e4e4e4">
+          <p style="margin:0 0 12px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#8d8d8d">Share</p>
+          <div style="display:flex;gap:8px">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://hrone.cloud/blog/hr-software-for-startups/" aria-label="Share on LinkedIn" title="LinkedIn" style="border:1px solid #e4e4e4;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;background:#fff;color:#535353;transition:background 140ms,color 140ms,border-color 140ms" style-hover="background:#eef4f1;color:#02563d;border-color:#d5e4dd"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.07-1.95-3.07-1.95 0-2.25 1.46-2.25 2.97V21h-4z"></path></svg></a>
+            <a href="https://twitter.com/intent/tweet?url=https://hrone.cloud/blog/hr-software-for-startups/" aria-label="Share on X" title="X" style="border:1px solid #e4e4e4;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;background:#fff;color:#535353;transition:background 140ms,color 140ms,border-color 140ms" style-hover="background:#eef4f1;color:#02563d;border-color:#d5e4dd"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.21-6.81-5.96 6.81H1.68l7.73-8.84L1.25 2.25h6.82l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.11z"></path></svg></a>
+            <a href="https://api.whatsapp.com/send?text=https://hrone.cloud/blog/hr-software-for-startups/" aria-label="Share on WhatsApp" title="WhatsApp" style="border:1px solid #e4e4e4;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;background:#fff;color:#535353;transition:background 140ms,color 140ms,border-color 140ms" style-hover="background:#eef4f1;color:#02563d;border-color:#d5e4dd"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.25 8.24-1.5 0-2.98-.4-4.26-1.17l-.31-.18-3.11.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.32-8.24zm-3.6 4.3c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.6c.13.17 1.76 2.7 4.28 3.78.6.26 1.06.41 1.42.53.6.19 1.14.16 1.57.1.48-.07 1.48-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.23-.16-.48-.29-.25-.12-1.48-.73-1.71-.81-.23-.09-.4-.13-.56.12-.17.25-.64.81-.79.98-.14.16-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.55-1.36-.77-1.85-.2-.48-.4-.42-.55-.42z"></path></svg></a>
+          </div>
+        </div>
+      </aside>
+
+      <main style="min-width:0;max-width:720px">
+
+        <p style="margin:0 0 14px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#02563d">Buyer's guide &middot; India</p>
+        <h1 style="margin:0 0 18px;font:800 40px/1.14 'Public Sans',sans-serif;letter-spacing:-0.028em;color:#272727;text-wrap:pretty">10 Best HR Software for Startups Scaling from 10 to 200 Employees</h1>
+        <p style="margin:0 0 24px;font:400 17.5px/1.6 'Public Sans',sans-serif;color:#535353;max-width:58ch;text-wrap:pretty">Banded picks by headcount, post-GST cost at 100 and 200 employees, and the seven statutory questions to ask in every demo.</p>
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:14px 0;margin-bottom:32px;padding-bottom:26px;border-bottom:1px solid #e4e4e4">
+          <div style="display:flex;align-items:center;gap:10px;padding-right:22px">
+            <img src="https://secure.gravatar.com/avatar/5bcdaf737034167a7d1a5b7056585bec7e9c011b464ad50dd3847e19f5e32926?s=96&amp;d=mm&amp;r=g" alt="" style="width:34px;height:34px;border-radius:999px;display:block">
+            <span style="display:flex;flex-direction:column;gap:4px"><span style="font:400 12px/1 'Public Sans',sans-serif;color:#8d8d8d">Written by</span><span style="font:600 14px/1 'Public Sans',sans-serif;color:#272727">Krishna Kaanth</span></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;padding:0 22px;border-left:1px solid #e4e4e4">
+            <span style="font:400 12px/1 'Public Sans',sans-serif;color:#8d8d8d">Last updated</span>
+            <span style="font:600 14px/1 'Public Sans',sans-serif;color:#272727">30 July 2026</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;padding:0 22px;border-left:1px solid #e4e4e4">
+            <span style="font:400 12px/1 'Public Sans',sans-serif;color:#8d8d8d">Skim in</span>
+            <span style="font:600 14px/1 'Public Sans',sans-serif;color:#272727">50 mins</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-left:auto">
+            <a href="https://chatgpt.com/?q=Summarise%20this%20HROne%20buyer%27s%20guide%20and%20tell%20me%20which%20HR%20software%20fits%20a%20200-person%20Indian%20startup%3A%20https%3A%2F%2Fhrone.cloud%2Fblog%2Fhr-software-for-startups%2F" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;background:#fff;color:#02563d;font:600 13px/1 'Public Sans',sans-serif;padding:9px 13px;border:1px solid #d5e4dd;border-radius:999px;transition:background 140ms,border-color 140ms" style-hover="background:#eef4f1;border-color:#02563d"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 4.6a5 5 0 0 0 3.1 3.1L21.3 11l-4.6 1.6a5 5 0 0 0-3.1 3.1L12 20.3l-1.6-4.6a5 5 0 0 0-3.1-3.1L2.7 11l4.6-1.6a5 5 0 0 0 3.1-3.1L12 2z"></path><path d="M19 16.4l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2z"></path></svg>Open in ChatGPT</a>
+            <a href="https://hrone.cloud/blog/hr-software-for-startups/" style="display:inline-flex;align-items:center;gap:7px;background:#fff;color:#02563d;font:600 13px/1 'Public Sans',sans-serif;padding:9px 13px;border:1px solid #d5e4dd;border-radius:999px;transition:background 140ms,border-color 140ms" style-hover="background:#eef4f1;border-color:#02563d"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg>Download PDF</a>
+          </div>
+        </div>
+
+        <figure style="margin:0 0 40px">
+          <img src="uploads/imgg-2784a4ce.png" alt="10 to 200 — 2026 HR software buyer's guide for India, ranked by headcount band" style="width:100%;display:block;border-radius:14px">
+        </figure>
+
+        <section id="answer" style="scroll-margin-top:104px">
+          <div style="background:#fff;border:1px solid #e4e4e4;border-radius:14px;padding:26px 28px;margin-bottom:36px">
+            <p style="margin:0 0 12px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#02563d">The short answer</p>
+            <p style="margin:0 0 16px;font:500 18px/1.62 'Public Sans',sans-serif;color:#272727;text-wrap:pretty">The 10 best HR software for startups scaling 10 to 200 employees in 2026 are <strong style="font-weight:600">HROne, Keka, greytHR, Zoho People, Zimyo, factoHR, Kredily, BambooHR, Deel and Rippling</strong>. HROne ranks first for India-first startups crossing 100 employees, running 127 pre-built workflows from pre-boarding to exit clearance, with a 4.8/5 G2 rating across 2,074 verified reviews.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:10px 28px;padding-top:16px;border-top:1px solid #e4e4e4;font:400 14px/1.5 'Public Sans',sans-serif;color:#535353;font-variant-numeric:tabular-nums">
+              <span><strong style="color:#272727;font-weight:600">10</strong> vendors assessed</span>
+              <span><strong style="color:#272727;font-weight:600">8</strong> decision-grade criteria</span>
+              <span><strong style="color:#272727;font-weight:600">₹</strong> costs shown pre- and post-GST</span>
+              <span><strong style="color:#272727;font-weight:600">7</strong> checks to run in the demo</span>
+            </div>
+          </div>
+
+          <p style="margin:0 0 20px;font:400 16.5px/1.75 'Public Sans',sans-serif;color:#272727;text-wrap:pretty">Picking HR software while you are growing from 10 to 200 people is a high-stakes call, because the system you install at 25 employees quietly decides how your payroll, attendance and compliance behave at 200. For this guide, 10 vendors serving Indian startups and mid-market teams were evaluated against defined operational, compliance and cost criteria rather than popularity or badge count.</p>
+          <p style="margin:0 0 20px;font:400 16.5px/1.75 'Public Sans',sans-serif;color:#272727;text-wrap:pretty">The primary reader here is the person inside the tool every day: the first HR hire, the HR ops lead, or the founder still doing payroll on a Sunday night. The shadow readers are the CHRO, the CFO signing the invoice, and the IT lead who owns access and data.</p>
+
+          <div style="border-left:3px solid #e56046;background:#fff;padding:20px 24px;border-radius:0 14px 14px 0;margin:32px 0;border-top:1px solid #e4e4e4;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4">
+            <p style="margin:0 0 8px;font:700 15px/1.4 'Public Sans',sans-serif;color:#272727">One honest disclosure before the table</p>
+            <p style="margin:0 0 12px;font:400 15.5px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Most ranking pages on this query are published by vendors who place themselves first without saying so. HROne publishes this one, and its own stated sweet spot is 100 to 5,000 employees — founder Karan Jain says startup-tier HR software is not the segment the company chases.</p>
+            <p style="margin:0;font:400 15.5px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">So read the ranking as banded: HROne earns the top slot for the 100-to-200 half of your journey, and the sub-₹100 tools below genuinely win the 10-to-50 half.</p>
+          </div>
+        </section>
+
+        <section id="criteria" style="scroll-margin-top:104px;padding-top:16px">
+          <p style="margin:0 0 10px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#02563d">Method</p>
+          <h2 style="margin:0 0 8px;font:800 27px/1.22 'Public Sans',sans-serif;letter-spacing:-0.021em;color:#272727">How these 10 were evaluated</h2>
+          <p style="margin:0 0 24px;font:400 16.5px/1.75 'Public Sans',sans-serif;color:#535353">Eight decision-grade measures, not feature checklists.</p>
+          <div data-grid2="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:#e4e4e4;border:1px solid #e4e4e4;border-radius:14px;overflow:hidden;margin-bottom:36px">
+            <div style="background:#fff;padding:18px 20px"><p style="margin:0 0 5px;font:600 14.5px/1.3 'Public Sans',sans-serif;color:#272727">India statutory depth</p><p style="margin:0;font:400 14px/1.55 'Public Sans',sans-serif;color:#535353">EPF ECR generation, ESIC wage-ceiling logic, multi-state PT and LWF slabs, TDS with Form 16 release.</p></div>
+            <div style="background:#fff;padding:18px 20px"><p style="margin:0 0 5px;font:600 14.5px/1.3 'Public Sans',sans-serif;color:#272727">Scale headroom (10→200)</p><p style="margin:0;font:400 14px/1.55 'Public Sans',sans-serif;color:#535353">Multi-entity support, layered access rights, workflow count, cost-centre depth before re-implementation.</p></div>
+            <div style="background:#fff;padding:18px 20px"><p style="margin:0 0 5px;font:600 14.5px/1.3 'Public Sans',sans-serif;color:#272727">Time to value</p><p style="margin:0;font:400 14px/1.55 'Public Sans',sans-serif;color:#535353">Published go-live timeline, migration effort, and whether billing starts at purchase or at go-live.</p></div>
+            <div style="background:#fff;padding:18px 20px"><p style="margin:0 0 5px;font:600 14.5px/1.3 'Public Sans',sans-serif;color:#272727">Pricing transparency</p><p style="margin:0;font:400 14px/1.55 'Public Sans',sans-serif;color:#535353">Published INR rates, minimum billing blocks, and the all-in number at 200 and 500 employees.</p></div>
+            <div style="background:#fff;padding:18px 20px"><p style="margin:0 0 5px;font:600 14.5px/1.3 'Public Sans',sans-serif;color:#272727">Adoption reality</p><p style="margin:0;font:400 14px/1.55 'Public Sans',sans-serif;color:#535353">Mobile coverage, clicks to close a routine task, self-service depth for non-desk staff.</p></div>
+            <div style="background:#fff;padding:18px 20px"><p style="margin:0 0 5px;font:600 14.5px/1.3 'Public Sans',sans-serif;color:#272727">Support model</p><p style="margin:0;font:400 14px/1.55 'Public Sans',sans-serif;color:#535353">Dedicated SPOC versus email-only queues, and publicly reported NPS or CSAT.</p></div>
+            <div style="background:#fff;padding:18px 20px"><p style="margin:0 0 5px;font:600 14.5px/1.3 'Public Sans',sans-serif;color:#272727">Verified review evidence</p><p style="margin:0;font:400 14px/1.55 'Public Sans',sans-serif;color:#535353">Volume, recency and the pattern of complaints — not just the average score.</p></div>
+            <div style="background:#fff;padding:18px 20px"><p style="margin:0 0 5px;font:600 14.5px/1.3 'Public Sans',sans-serif;color:#272727">Exit cost</p><p style="margin:0;font:400 14px/1.55 'Public Sans',sans-serif;color:#535353">Data export rights, retention windows and lock-in length.</p></div>
+          </div>
+        </section>
+
+        <section id="table" style="scroll-margin-top:104px">
+          <p style="margin:0 0 10px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#02563d">At a glance</p>
+          <h2 style="margin:0 0 8px;font:800 27px/1.22 'Public Sans',sans-serif;letter-spacing:-0.021em;color:#272727">The master comparison</h2>
+          <p style="margin:0 0 20px;font:400 16.5px/1.75 'Public Sans',sans-serif;color:#535353">All 10 vendors, with the one limitation each that buyers report most.</p>
+          <div style="border:1px solid #e4e4e4;border-radius:14px;overflow:hidden;background:#fff;margin-bottom:14px">
+            <div style="overflow-x:auto">
+              <table style="width:100%;border-collapse:collapse;font:400 13.5px/1.5 'Public Sans',sans-serif;font-variant-numeric:tabular-nums">
+                <thead>
+                  <tr style="background:#f8f6f0">
+                    <th style="text-align:left;padding:13px 16px;font:600 12px/1.2 'Public Sans',sans-serif;letter-spacing:0.04em;text-transform:uppercase;color:#535353;border-bottom:1px solid #e4e4e4">Provider</th>
+                    <th style="text-align:left;padding:13px 16px;font:600 12px/1.2 'Public Sans',sans-serif;letter-spacing:0.04em;text-transform:uppercase;color:#535353;border-bottom:1px solid #e4e4e4">Best for</th>
+                    <th style="text-align:left;padding:13px 16px;font:600 12px/1.2 'Public Sans',sans-serif;letter-spacing:0.04em;text-transform:uppercase;color:#535353;border-bottom:1px solid #e4e4e4;white-space:nowrap">Cost at 200</th>
+                    <th style="text-align:left;padding:13px 16px;font:600 12px/1.2 'Public Sans',sans-serif;letter-spacing:0.04em;text-transform:uppercase;color:#535353;border-bottom:1px solid #e4e4e4">Known limitation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="background:#eef4f1">
+                    <td style="padding:20px 16px;border-top:2px solid #02563d;border-bottom:2px solid #02563d;vertical-align:top">
+                      <span style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><img src="assets/hrone-icon-green.png" alt="" style="width:22px;height:22px;display:block"><strong style="font:700 15.5px/1.2 'Public Sans',sans-serif;color:#02563d">HROne</strong></span>
+                      <span style="display:inline-block;margin-bottom:6px;background:#02563d;color:#fff;font:600 10.5px/1 'Public Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;padding:5px 9px;border-radius:999px">Top pick</span><br>
+                      <span style="color:#4b6b5f;font-size:12.5px">4.8/5 · 2,074 reviews</span>
+                    </td>
+                    <td style="padding:20px 16px;border-top:2px solid #02563d;border-bottom:2px solid #02563d;vertical-align:top;color:#3d5a4f;font-weight:500">HR ops leads crossing 100 heads with multi-entity payroll</td>
+                    <td style="padding:20px 16px;border-top:2px solid #02563d;border-bottom:2px solid #02563d;vertical-align:top;white-space:nowrap;font:700 15px/1.4 'Public Sans',sans-serif;color:#02563d">₹17,000/mo</td>
+                    <td style="padding:20px 16px;border-top:2px solid #02563d;border-bottom:2px solid #02563d;vertical-align:top;color:#3d5a4f">Steep first-week learning curve on Payroll and Performance</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top"><strong style="font-weight:600">Keka</strong><br><span style="color:#8d8d8d;font-size:12.5px">4.5/5</span></td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">First HR hires who want polished UX over configuration depth</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;white-space:nowrap">₹18,999/mo</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Attendance-sync lag on mobile; ATS and PSA are quote-only</td>
+                  </tr>
+                  <tr style="background:#fdfaf3">
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top"><strong style="font-weight:600">greytHR</strong></td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Payroll managers who need statutory filing accuracy above all</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;white-space:nowrap">₹9,245/mo</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Aging UI, thin workflow automation, 50-employee minimum block</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top"><strong style="font-weight:600">Zoho People</strong></td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Teams already standardised on the Zoho suite</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;white-space:nowrap">₹10,000/mo</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Slow support; payroll sold separately; feature-limited mobile app</td>
+                  </tr>
+                  <tr style="background:#fdfaf3">
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top"><strong style="font-weight:600">Zimyo</strong></td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Cost-conscious SMBs stepping off spreadsheets</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;white-space:nowrap">₹10,000/mo</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Thinner enterprise-scale and multi-entity track record</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top"><strong style="font-weight:600">factoHR</strong></td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Manufacturing-leaning SMBs needing attendance plus payroll</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;white-space:nowrap;color:#8d8d8d">Not disclosed</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Pricing basis not published in a single verifiable tier</td>
+                  </tr>
+                  <tr style="background:#fdfaf3">
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top"><strong style="font-weight:600">Kredily</strong></td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Sub-50 teams with near-zero budget</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;white-space:nowrap">₹10,000/mo</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Free tier caps fast; 250MB database limit; payroll depth is paid</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top"><strong style="font-weight:600">BambooHR</strong></td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">US-centric teams wanting a clean people database</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;white-space:nowrap;color:#8d8d8d">Quote (USD)</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">No India statutory payroll; users report strain past 50 employees</td>
+                  </tr>
+                  <tr style="background:#fdfaf3">
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top"><strong style="font-weight:600">Deel</strong></td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Startups hiring contractors and staff across borders</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;white-space:nowrap;color:#8d8d8d">Not comparable</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Overkill and over-priced if your entire team is in India</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:14px 16px;vertical-align:top"><strong style="font-weight:600">Rippling</strong></td>
+                    <td style="padding:14px 16px;vertical-align:top;color:#535353">Tech teams wanting HR plus IT device management in one</td>
+                    <td style="padding:14px 16px;vertical-align:top;white-space:nowrap;color:#8d8d8d">Quote (USD)</td>
+                    <td style="padding:14px 16px;vertical-align:top;color:#535353">India statutory payroll is not its native strength</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p style="margin:0 0 36px;font:400 13px/1.6 'Public Sans',sans-serif;color:#8d8d8d">Star ratings shown only where a verified review base sits in our source set. All INR figures are pre-GST list rates at 200 employees on the entry tier.</p>
+
+          <div style="background:#013A29;border-radius:14px;padding:48px 36px 44px;margin:0 0 16px;display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center">
+            <div style="display:flex;align-items:center;gap:18px">
+              <div style="width:78px;height:78px;border-radius:18px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);display:flex;align-items:center;justify-content:center;font:600 12.5px/1.2 'Public Sans',sans-serif;color:#7daf9a;letter-spacing:0.05em">.XLSX</div>
+              <button type="button" onClick="{{ toggleFull }}" aria-label="Toggle full comparison" style="{{ trackStyle }}" hint-placeholder-val="{{ true }}">
+                <span style="{{ knobStyle }}" hint-placeholder-val="{{ true }}"></span>
+              </button>
+              <div style="width:78px;height:78px;border-radius:18px;background:#fff;display:flex;align-items:center;justify-content:center">
+                <img src="assets/hrone-icon-green.png" alt="HROne" style="width:42px;height:42px;object-fit:contain">
+              </div>
+            </div>
+            <h3 style="margin:0;font:800 34px/1.16 'Public Sans',sans-serif;letter-spacing:-0.026em;color:#fff;max-width:18ch;text-wrap:pretty">Five spreadsheets, or <span style="color:#fbb887">one screen</span></h3>
+            <p style="margin:0;font:400 16px/1.6 'Public Sans',sans-serif;color:#caddd5;max-width:54ch;text-wrap:pretty">Every vendor above closes the same tasks. The difference is how many tabs it takes at month-end, and what the invoice reads at 200 people.</p>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+              <button type="button" onClick="{{ toggleFull }}" style="border:0;background:#fff;color:#02563d;font:600 15px/1 'Public Sans',sans-serif;padding:16px 34px;border-radius:999px;cursor:pointer;transition:background 140ms" style-hover="background:#e3ede8">See full comparison</button>
+              <a href="https://hrone.cloud/tools/roi-calculator/" style="border:0;font:500 13.5px/1 'Public Sans',sans-serif;color:#96bead" style-hover="color:#ffffff">Run the numbers on your headcount →</a>
+            </div>
+          </div>
+
+          <sc-if value="{{ showFull }}" hint-placeholder-val="{{ false }}">
+            <div style="border:1px solid #e4e4e4;border-radius:14px;overflow:hidden;background:#fff;margin:0 0 12px">
+              <div style="padding:16px 20px;border-bottom:1px solid #e4e4e4;display:flex;justify-content:space-between;align-items:center;gap:16px;background:#f8f6f0">
+                <p style="margin:0;font:600 14px/1.3 'Public Sans',sans-serif;color:#272727">Full comparison — depth, support and pricing model</p>
+                <button type="button" onClick="{{ toggleFull }}" style="border:1px solid #c7c7c7;background:#fff;color:#535353;font:500 13px/1 'Public Sans',sans-serif;padding:9px 14px;border-radius:10px;cursor:pointer;transition:border-color 140ms" style-hover="border-color:#02563d">Hide</button>
+              </div>
+              <div style="overflow-x:auto">
+                <table style="width:100%;border-collapse:collapse;font:400 13.5px/1.5 'Public Sans',sans-serif">
+                  <thead>
+                    <tr style="background:#fff">
+                      <th style="text-align:left;padding:12px 16px;font:600 12px/1.2 'Public Sans',sans-serif;letter-spacing:0.04em;text-transform:uppercase;color:#535353;border-bottom:1px solid #e4e4e4">Provider</th>
+                      <th style="text-align:left;padding:12px 16px;font:600 12px/1.2 'Public Sans',sans-serif;letter-spacing:0.04em;text-transform:uppercase;color:#535353;border-bottom:1px solid #e4e4e4">Standout strength</th>
+                      <th style="text-align:left;padding:12px 16px;font:600 12px/1.2 'Public Sans',sans-serif;letter-spacing:0.04em;text-transform:uppercase;color:#535353;border-bottom:1px solid #e4e4e4">Modules / workflow depth</th>
+                      <th style="text-align:left;padding:12px 16px;font:600 12px/1.2 'Public Sans',sans-serif;letter-spacing:0.04em;text-transform:uppercase;color:#535353;border-bottom:1px solid #e4e4e4">Support model</th>
+                      <th style="text-align:left;padding:12px 16px;font:600 12px/1.2 'Public Sans',sans-serif;letter-spacing:0.04em;text-transform:uppercase;color:#535353;border-bottom:1px solid #e4e4e4">Pricing model</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="background:#fdfaf3"><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;font-weight:600;color:#02563d">HROne</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Every task and approval in one Super Inbox, closed in three clicks</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">30+ modules, 127 pre-built workflows, hire to retire</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Phone + email + dedicated prior-HR SPOC · 9.8 NPS</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Flat PEPM from ₹85, billing starts after go-live, no lock-in</td></tr>
+                    <tr><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;font-weight:600">Keka</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Transparent public India pricing across three tiers</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Core HR, payroll, performance, time, ATS (quoted separately)</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Largely email and ticket-led</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">₹9,999/mo base up to 100, then ₹90 per employee</td></tr>
+                    <tr style="background:#fdfaf3"><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;font-weight:600">greytHR</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Deep, long-established India payroll compliance and filings</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Payroll-led core, add-ons for performance and time</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Email and ticket-led, partner-assisted</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">₹2,495/mo for 50, then ₹45 per employee (Essential)</td></tr>
+                    <tr><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;font-weight:600">Zoho People</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Native flow into Zoho Recruit and Zoho Payroll</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Broad HR suite, payroll sold separately</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Email and ticket-led</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">≈ ₹50 per employee per month entry tier</td></tr>
+                    <tr style="background:#fdfaf3"><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;font-weight:600">Zimyo</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Wide module count at a low published entry price</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">50+ modules claimed</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Email plus account manager</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">From ₹50 per employee per month (Basic), pre-GST</td></tr>
+                    <tr><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;font-weight:600">factoHR</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Strong attendance-device and payroll pairing</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Payroll, attendance, performance</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Email plus phone</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Five editions ₹2,999–₹5,999/mo, block basis unclear</td></tr>
+                    <tr style="background:#fdfaf3"><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;font-weight:600">Kredily</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Free core HR and attendance tier</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Core HR, attendance, payroll</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Email and community-led</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Freemium, paid payroll add-on from ₹1,249/mo</td></tr>
+                    <tr><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;font-weight:600">BambooHR</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Simple, well-liked interface for records and time off</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Core HR, ATS, time off, US payroll</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Email plus phone (HR rated above payroll support)</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Quote-based, USD PEPM</td></tr>
+                    <tr style="background:#fdfaf3"><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;font-weight:600">Deel</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Global EOR and contractor compliance coverage</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">EOR, contractor management, global payroll</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">Chat plus email plus CSM</td><td style="padding:13px 16px;border-bottom:1px solid #e4e4e4;vertical-align:top;color:#535353">$49 per contractor, $599 per EOR employee monthly</td></tr>
+                    <tr><td style="padding:13px 16px;vertical-align:top;font-weight:600">Rippling</td><td style="padding:13px 16px;vertical-align:top;color:#535353">Unified HR, app and device provisioning</td><td style="padding:13px 16px;vertical-align:top;color:#535353">HR, IT, spend management</td><td style="padding:13px 16px;vertical-align:top;color:#535353">Chat plus email</td><td style="padding:13px 16px;vertical-align:top;color:#535353">Quote-based, modular USD PEPM</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <p style="margin:0 0 40px;font:400 13px/1.6 'Public Sans',sans-serif;color:#8d8d8d">Support and pricing detail as published by each vendor at the time of writing. Always confirm the post-GST all-in number in writing.</p>
+          </sc-if>
+        </section>
+
+        <div data-cta="band" style="display:flex;align-items:center;gap:28px;background:#02563d;border-radius:14px;padding:30px 32px;margin:8px 0 44px;flex-wrap:wrap">
+          <img src="assets/hrone-logo-white.png" alt="HROne" style="flex:0 0 auto;display:block;height:34px;width:auto">
+          <div style="flex:0 0 1px;align-self:stretch;background:rgba(255,255,255,0.18)"></div>
+          <div style="flex:1 1 300px;min-width:0">
+          <h3 style="margin:0 0 8px;font:800 22px/1.28 'Public Sans',sans-serif;letter-spacing:-0.018em;color:#fff;text-wrap:pretty">See how HROne handles your payroll in 30 minutes</h3>
+          <p style="margin:0 0 20px;font:400 15px/1.6 'Public Sans',sans-serif;color:#c3d8d0;text-wrap:pretty">No setup, no card required. Billing starts only after go-live.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="https://hrone.cloud/pricing/" style="border:0;background:#e56046;color:#fff;font:600 14.5px/1 'Public Sans',sans-serif;padding:14px 20px;border-radius:10px;transition:background 140ms" style-hover="background:#d24d33">Start free trial</a>
+            <a href="https://hrone.cloud/pricing/" style="background:transparent;color:#fff;font:600 14.5px/1 'Public Sans',sans-serif;padding:13px 20px;border:1px solid rgba(255,255,255,0.42);border-radius:10px;transition:background 140ms" style-hover="background:rgba(255,255,255,0.1)">Book a demo instead</a>
+          </div>
+          </div>
+        </div>
+
+        <section id="hrone" style="scroll-margin-top:104px;border-top:1px solid #e4e4e4;padding-top:48px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+            <span style="background:#02563d;color:#fff;font:600 12px/1 'Public Sans',sans-serif;padding:6px 10px;border-radius:999px;font-variant-numeric:tabular-nums">01</span>
+            <h2 style="margin:0;font:800 28px/1.2 'Public Sans',sans-serif;letter-spacing:-0.024em;color:#272727">HROne</h2>
+          </div>
+          <p style="margin:0 0 22px;font:400 17px/1.6 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">India-first hire-to-retire HCM for teams crossing 100 employees.</p>
+          <div data-facts="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:#e4e4e4;border:1px solid #e4e4e4;border-radius:14px;overflow:hidden;margin-bottom:26px">
+            <div style="background:#fff;padding:15px 18px"><p style="margin:0 0 4px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;color:#8d8d8d">Best for</p><p style="margin:0;font:400 14px/1.5 'Public Sans',sans-serif;color:#272727">100–5,000 employees, multi-entity</p></div>
+            <div style="background:#fff;padding:15px 18px"><p style="margin:0 0 4px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;color:#8d8d8d">Cost at 200</p><p style="margin:0;font:400 14px/1.5 'Public Sans',sans-serif;color:#272727;font-variant-numeric:tabular-nums">₹17,000/mo · from ₹85 PEPM</p></div>
+            <div style="background:#fff;padding:15px 18px"><p style="margin:0 0 4px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;color:#8d8d8d">Watch out for</p><p style="margin:0;font:400 14px/1.5 'Public Sans',sans-serif;color:#272727">Heavy first week without guided onboarding</p></div>
+          </div>
+          <p style="margin:0 0 20px;font:400 16.5px/1.75 'Public Sans',sans-serif;color:#272727;text-wrap:pretty">HROne is a cloud-based, mobile-first HCM built in Noida and launched in 2016 under Uneecops Workplace Solutions. It serves roughly 2,000 enterprise brands across 20 industries and has processed over 70 lakh payslips. G2's 2026 Best Software Awards placed it in the global top three for customer satisfaction, and first in India and APAC.</p>
+          <figure style="margin:0 0 24px">
+            <img src="https://hrone.cloud/wp-content/uploads/2026/07/Screenshot-2026-07-28-102916.png" alt="HROne One AI suite tiles for resume parsing, JD creation and expense receipt extraction" style="width:100%;display:block;border-radius:14px;border:1px solid #e4e4e4">
+            <figcaption style="margin:10px 0 0;font:400 13px/1.5 'Public Sans',sans-serif;color:#8d8d8d">One AI parses resumes and receipts, cutting manual screening and claim entry.</figcaption>
+          </figure>
+          <h3 style="margin:0 0 12px;font:700 19px/1.3 'Public Sans',sans-serif;color:#272727">What it actually does well</h3>
+          <ul style="margin:0 0 22px;padding-left:20px;display:flex;flex-direction:column;gap:9px;font:400 16.5px/1.7 'Public Sans',sans-serif;color:#272727">
+            <li><strong style="font-weight:600">Super Inbox (InboxforHR).</strong> Every pending approval, request and task on one screen, closed within three clicks.</li>
+            <li><strong style="font-weight:600">Payroll engine.</strong> Auto-scheduler runs recurring cycles with group payout validations, catching missing bank details before disbursal, not after a failed NEFT batch.</li>
+            <li><strong style="font-weight:600">Time Office.</strong> Real-time biometric sync plus offline mobile attendance that auto-syncs on reconnection.</li>
+            <li><strong style="font-weight:600">127 pre-built workflows.</strong> Who does what by when across pre-boarding, confirmation, transfer, promotion and exit clearance.</li>
+            <li><strong style="font-weight:600">ROI dashboard.</strong> Lifetime hours saved against average HR salary, so the CHRO walks into a board review with a rupee figure already computed.</li>
+          </ul>
+          <div style="background:#fff;border:1px solid #e4e4e4;border-radius:14px;padding:20px 24px;margin-bottom:24px">
+            <p style="margin:0 0 12px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#02563d">India compliance</p>
+            <div data-grid2="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px 24px;font:400 14.5px/1.5 'Public Sans',sans-serif;color:#535353">
+              <div><strong style="color:#272727;font-weight:600">PF / ESI / TDS</strong> — automated calculation, challan files, Form 16 release</div>
+              <div><strong style="color:#272727;font-weight:600">Labour law</strong> — PT and LWF slab logic reported accurate by payroll admins</div>
+              <div><strong style="color:#272727;font-weight:600">Payroll localisation</strong> — CTC revision history, FBP, arrear-day handling</div>
+              <div><strong style="color:#272727;font-weight:600">Multi-state</strong> — multi-entity in one instance, no cap on entity count</div>
+            </div>
+          </div>
+          <blockquote style="margin:0 0 24px;padding:0 0 0 20px;border-left:3px solid #caddd5">
+            <p style="margin:0 0 8px;font:400 16.5px/1.7 'Public Sans',sans-serif;color:#272727;font-style:italic;text-wrap:pretty">"The InboxforHR is a game-changer, centralizing every HR task into one simple inbox, cutting down administrative time by 60–70% and preventing tasks from falling through the cracks."</p>
+            <cite style="font:400 13.5px/1.4 'Public Sans',sans-serif;color:#8d8d8d;font-style:normal">Waldon S., 4/5 · <a href="https://www.g2.com/products/uneecops-hrone/reviews/hrone-review-12398224">HROne G2 verified review</a></cite>
+          </blockquote>
+          <div style="background:#fff;border:1px solid #e4e4e4;border-left:3px solid #fbb887;border-radius:0 14px 14px 0;padding:20px 24px;margin-bottom:8px">
+            <p style="margin:0 0 8px;font:700 15px/1.4 'Public Sans',sans-serif;color:#272727">My read on the trade-off</p>
+            <p style="margin:0;font:400 15.5px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">The payroll and workflow depth is the reason people stay, and that same depth is the reason week one feels heavy. That is a fair trade if you are heading past 100 people. It is a bad trade if you are 15 people and want something you can set up alone on a Friday.</p>
+          </div>
+        </section>
+
+        <section id="keka" style="scroll-margin-top:104px;border-top:1px solid #e4e4e4;padding-top:48px;margin-top:52px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+            <span style="background:#e3ede8;color:#02563d;font:600 12px/1 'Public Sans',sans-serif;padding:6px 10px;border-radius:999px;font-variant-numeric:tabular-nums">02</span>
+            <h2 style="margin:0;font:800 28px/1.2 'Public Sans',sans-serif;letter-spacing:-0.024em;color:#272727">Keka</h2>
+          </div>
+          <p style="margin:0 0 22px;font:400 17px/1.6 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Polished and transparently priced HRMS for first-time HR buyers.</p>
+          <div data-facts="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:#e4e4e4;border:1px solid #e4e4e4;border-radius:14px;overflow:hidden;margin-bottom:26px">
+            <div style="background:#fff;padding:15px 18px"><p style="margin:0 0 4px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;color:#8d8d8d">Best for</p><p style="margin:0;font:400 14px/1.5 'Public Sans',sans-serif;color:#272727">First HR hires who prize UX</p></div>
+            <div style="background:#fff;padding:15px 18px"><p style="margin:0 0 4px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;color:#8d8d8d">Cost at 200</p><p style="margin:0;font:400 14px/1.5 'Public Sans',sans-serif;color:#272727;font-variant-numeric:tabular-nums">₹9,999 base + ₹90/employee</p></div>
+            <div style="background:#fff;padding:15px 18px"><p style="margin:0 0 4px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;color:#8d8d8d">Watch out for</p><p style="margin:0;font:400 14px/1.5 'Public Sans',sans-serif;color:#272727">ATS and LMS priced outside the base</p></div>
+          </div>
+          <p style="margin:0 0 20px;font:400 16.5px/1.75 'Public Sans',sans-serif;color:#272727;text-wrap:pretty">Keka is an India-headquartered cloud HRMS founded in 2014, serving over 12,500 customers with native payroll for India, the US and the UAE. It holds a 4.5 G2 rating and is best known for interface polish and for publishing its India pricing openly, which is still rare in this category. It is mostly bought by teams making their first move off spreadsheets who want employees to actually log in without training.</p>
+          <p style="margin:0 0 20px;font:400 16.5px/1.75 'Public Sans',sans-serif;color:#272727;text-wrap:pretty">Core HR centralises records, documents, org charts and onboarding. India payroll automates multi-state statutory computation and payslip release. Performance covers goals, OKRs and continuous check-ins for teams running their first formal review cycle. Keka Hiring is quote-based, and Keka Learn is an add-on at ₹60 per employee per month with a 50-employee minimum.</p>
+          <figure style="margin:0 0 12px">
+            <img src="https://hrone.cloud/wp-content/uploads/2026/07/Screenshot-2026-07-28-102947.png" alt="Keka core HR inbox screen showing expense claim approval" style="width:100%;display:block;border-radius:14px;border:1px solid #e4e4e4">
+            <figcaption style="margin:10px 0 0;font:400 13px/1.5 'Public Sans',sans-serif;color:#8d8d8d">Keka centralises approvals in one inbox, which is why adoption rarely needs training.</figcaption>
+          </figure>
+        </section>
+
+        <section id="greythr" style="scroll-margin-top:104px;border-top:1px solid #e4e4e4;padding-top:48px;margin-top:52px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+            <span style="background:#e3ede8;color:#02563d;font:600 12px/1 'Public Sans',sans-serif;padding:6px 10px;border-radius:999px;font-variant-numeric:tabular-nums">03</span>
+            <h2 style="margin:0;font:800 28px/1.2 'Public Sans',sans-serif;letter-spacing:-0.024em;color:#272727">greytHR</h2>
+          </div>
+          <p style="margin:0 0 22px;font:400 17px/1.6 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Compliance-first payroll platform for statutory accuracy.</p>
+          <div data-facts="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:#e4e4e4;border:1px solid #e4e4e4;border-radius:14px;overflow:hidden;margin-bottom:26px">
+            <div style="background:#fff;padding:15px 18px"><p style="margin:0 0 4px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;color:#8d8d8d">Best for</p><p style="margin:0;font:400 14px/1.5 'Public Sans',sans-serif;color:#272727">50–150 employees, filing accuracy first</p></div>
+            <div style="background:#fff;padding:15px 18px"><p style="margin:0 0 4px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;color:#8d8d8d">Cost at 200</p><p style="margin:0;font:400 14px/1.5 'Public Sans',sans-serif;color:#272727;font-variant-numeric:tabular-nums">₹9,245/mo (Essential)</p></div>
+            <div style="background:#fff;padding:15px 18px"><p style="margin:0 0 4px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;color:#8d8d8d">Watch out for</p><p style="margin:0;font:400 14px/1.5 'Public Sans',sans-serif;color:#272727">Billing starts at a 50-employee block</p></div>
+          </div>
+          <p style="margin:0 0 20px;font:400 16.5px/1.75 'Public Sans',sans-serif;color:#272727;text-wrap:pretty">greytHR is one of India's most widely deployed HR and payroll platforms, built for SMB and mid-market statutory compliance. Its reputation rests on payroll filing depth rather than workflow automation or interface polish. It publishes India pricing openly, including the 50-employee minimum billing block, and is bought mostly by payroll managers who care more about a clean PF challan than a pretty dashboard.</p>
+          <div style="background:#fff;border:1px solid #e4e4e4;border-left:3px solid #fbb887;border-radius:0 14px 14px 0;padding:20px 24px;margin-bottom:8px">
+            <p style="margin:0 0 8px;font:700 15px/1.4 'Public Sans',sans-serif;color:#272727">My read on the trade-off</p>
+            <p style="margin:0;font:400 15.5px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">greytHR is genuinely the cheapest credible statutory option at 200 people. The catch shows up later, when you need transfer, confirmation and exit-clearance workflows and find yourself back on email chains. Compliance accuracy and process automation are two different purchases — greytHR sells the first one well.</p>
+          </div>
+        </section>
+
+        <div data-cta="inline" style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;background:#eef4f1;border:1px solid #d5e4dd;border-radius:14px;padding:22px 24px;margin:44px 0 8px">
+          <img src="assets/hrone-icon-green.png" alt="HROne" style="flex:0 0 auto;display:block;width:40px;height:40px">
+          <div style="flex:1 1 300px">
+            <h3 style="margin:0 0 6px;font:700 18.5px/1.3 'Public Sans',sans-serif;letter-spacing:-0.012em;color:#02563d;text-wrap:pretty">Talk to someone who has migrated 2,000+ HR teams</h3>
+            <p style="margin:0;font:400 14.5px/1.55 'Public Sans',sans-serif;color:#4b6b5f;text-wrap:pretty">A 30-day go-live is normal for teams your size — ask what yours would look like.</p>
+          </div>
+          <a href="https://hrone.cloud/pricing/" style="border:0;flex:0 0 auto;background:#02563d;color:#fff;font:600 14.5px/1 'Public Sans',sans-serif;padding:14px 22px;border-radius:10px;transition:background 140ms" style-hover="background:#013A29">Book a demo</a>
+        </div>
+
+        <section id="zoho" style="scroll-margin-top:104px;border-top:1px solid #e4e4e4;padding-top:48px;margin-top:52px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+            <span style="background:#e3ede8;color:#02563d;font:600 12px/1 'Public Sans',sans-serif;padding:6px 10px;border-radius:999px;font-variant-numeric:tabular-nums">04</span>
+            <h2 style="margin:0;font:800 28px/1.2 'Public Sans',sans-serif;letter-spacing:-0.024em;color:#272727">Zoho People</h2>
+          </div>
+          <p style="margin:0 0 22px;font:400 17px/1.6 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Suite-native HR for teams already running Zoho.</p>
+          <div data-facts="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:#e4e4e4;border:1px solid #e4e4e4;border-radius:14px;overflow:hidden;margin-bottom:26px">
+            <div style="background:#fff;padding:15px 18px"><p style="margin:0 0 4px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;color:#8d8d8d">Best for</p><p style="margin:0;font:400 14px/1.5 'Public Sans',sans-serif;color:#272727">30–120 employees already on Zoho</p></div>
+            <div style="background:#fff;padding:15px 18px"><p style="margin:0 0 4px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;color:#8d8d8d">Cost at 200</p><p style="margin:0;font:400 14px/1.5 'Public Sans',sans-serif;color:#272727;font-variant-numeric:tabular-nums">₹10,000/mo before payroll</p></div>
+            <div style="background:#fff;padding:15px 18px"><p style="margin:0 0 4px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;color:#8d8d8d">Watch out for</p><p style="margin:0;font:400 14px/1.5 'Public Sans',sans-serif;color:#272727">India payroll needs a second subscription</p></div>
+          </div>
+          <p style="margin:0 0 20px;font:400 16.5px/1.75 'Public Sans',sans-serif;color:#272727;text-wrap:pretty">Zoho People is the HR module inside the wider Zoho business suite. Its strongest argument is native flow into Zoho Recruit and Zoho Payroll, which removes duplicate candidate and salary entry. Reviewers describe solid attendance and leave handling alongside slow support response. PF, ESI and TDS are handled through Zoho Payroll — a separate product — so price the pair, not the entry tier.</p>
+          <blockquote style="margin:0 0 8px;padding:0 0 0 20px;border-left:3px solid #f9d7ce">
+            <p style="margin:0 0 8px;font:400 16.5px/1.7 'Public Sans',sans-serif;color:#272727;font-style:italic;text-wrap:pretty">"The biggest drawback for me has been the lack of customer support. There were days when I was stuck with errors and couldn't find a solution."</p>
+            <cite style="font:400 13.5px/1.4 'Public Sans',sans-serif;color:#8d8d8d;font-style:normal">Dhana C., HR professional · <a href="https://www.g2.com/products/zoho-people/reviews/zoho-people-review-12029728">Zoho People G2 verified review</a></cite>
+          </blockquote>
+        </section>
+
+        <section id="zimyo" style="scroll-margin-top:104px;border-top:1px solid #e4e4e4;padding-top:48px;margin-top:52px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+            <span style="background:#e3ede8;color:#02563d;font:600 12px/1 'Public Sans',sans-serif;padding:6px 10px;border-radius:999px;font-variant-numeric:tabular-nums">05</span>
+            <h2 style="margin:0;font:800 28px/1.2 'Public Sans',sans-serif;letter-spacing:-0.024em;color:#272727">Zimyo</h2>
+          </div>
+          <p style="margin:0 0 22px;font:400 17px/1.6 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Cost-conscious modular HRMS for SMB-to-mid-market crossovers.</p>
+          <div data-facts="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:#e4e4e4;border:1px solid #e4e4e4;border-radius:14px;overflow:hidden;margin-bottom:26px">
+            <div style="background:#fff;padding:15px 18px"><p style="margin:0 0 4px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;color:#8d8d8d">Best for</p><p style="margin:0;font:400 14px/1.5 'Public Sans',sans-serif;color:#272727">40–120 employees on a tight budget</p></div>
+            <div style="background:#fff;padding:15px 18px"><p style="margin:0 0 4px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;color:#8d8d8d">Cost at 200</p><p style="margin:0;font:400 14px/1.5 'Public Sans',sans-serif;color:#272727;font-variant-numeric:tabular-nums">₹10,000/mo pre-GST</p></div>
+            <div style="background:#fff;padding:15px 18px"><p style="margin:0 0 4px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;color:#8d8d8d">Watch out for</p><p style="margin:0;font:400 14px/1.5 'Public Sans',sans-serif;color:#272727">All-in lands nearer ₹94 per employee</p></div>
+          </div>
+          <p style="margin:0 0 20px;font:400 16.5px/1.75 'Public Sans',sans-serif;color:#272727;text-wrap:pretty">Zimyo positions on module breadth at a low published entry price, covering core HR, payroll, performance and engagement. Independent pricing analysis puts the all-in Indian buyer cost near ₹94 per employee monthly after 18% GST, which is a useful reality check on the ₹50 sticker.</p>
+          <div style="border-left:3px solid #e56046;background:#fff;padding:20px 24px;border-radius:0 14px 14px 0;margin:0 0 8px;border-top:1px solid #e4e4e4;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4">
+            <p style="margin:0 0 8px;font:700 15px/1.4 'Public Sans',sans-serif;color:#272727">The GST lesson every buyer forgets</p>
+            <p style="margin:0;font:400 15.5px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Teams compare a pre-GST quote from one vendor against a post-GST quote from another, and the cheaper one looks 18% cheaper than it is. Ask every vendor for the post-GST number in writing before you compare anything.</p>
+          </div>
+        </section>
+
+        <section id="rest" style="scroll-margin-top:104px;border-top:1px solid #e4e4e4;padding-top:48px;margin-top:52px">
+          <p style="margin:0 0 10px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#02563d">The rest of the field</p>
+          <h2 style="margin:0 0 8px;font:800 27px/1.22 'Public Sans',sans-serif;letter-spacing:-0.021em;color:#272727">06–10 · The specialists</h2>
+          <p style="margin:0 0 24px;font:400 16.5px/1.75 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Each of these wins a narrow job well. None of them is a general-purpose answer for an India-only team scaling to 200.</p>
+
+          <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:32px">
+            <div style="background:#fff;border:1px solid #e4e4e4;border-radius:14px;padding:22px 24px">
+              <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:8px">
+                <span style="font:600 12px/1 'Public Sans',sans-serif;color:#8d8d8d;font-variant-numeric:tabular-nums">06</span>
+                <h3 style="margin:0;font:700 19px/1.3 'Public Sans',sans-serif;color:#272727">factoHR</h3>
+                <span style="font:400 14px/1.4 'Public Sans',sans-serif;color:#8d8d8d">Attendance-plus-payroll for device-heavy SMBs</span>
+              </div>
+              <p style="margin:0;font:400 15.5px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Pairs biometric hardware integration with statutory payroll, which fits factory and multi-shift teams whose punch data lives on machines. G2 lists five editions from ₹2,999 to ₹5,999 per month, but the employee-block basis is not published — insist on a written all-in quote at your projected headcount.</p>
+            </div>
+            <div style="background:#fff;border:1px solid #e4e4e4;border-radius:14px;padding:22px 24px">
+              <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:8px">
+                <span style="font:600 12px/1 'Public Sans',sans-serif;color:#8d8d8d;font-variant-numeric:tabular-nums">07</span>
+                <h3 style="margin:0;font:700 19px/1.3 'Public Sans',sans-serif;color:#272727">Kredily</h3>
+                <span style="font:400 14px/1.4 'Public Sans',sans-serif;color:#8d8d8d">Free-forever HRMS for sub-25 teams</span>
+              </div>
+              <p style="margin:0 0 12px;font:400 15.5px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">A genuinely free core plan covering employee database, onboarding, payroll, payout and self-service, with automated PF and ESI plus Form 16 and 24Q. Hard limits apply: a 250MB database cap and deactivation after three months of inactivity. Geo-fencing and biometric sync are paid-tier only.</p>
+              <p style="margin:0;font:400 15.5px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty"><strong style="color:#272727;font-weight:600">Where free stops being free:</strong> use it to get compliant fast under 25 people. Do not build three years of employee history inside a 250MB cap you will hit.</p>
+            </div>
+            <div style="background:#fff;border:1px solid #e4e4e4;border-radius:14px;padding:22px 24px">
+              <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:8px">
+                <span style="font:600 12px/1 'Public Sans',sans-serif;color:#8d8d8d;font-variant-numeric:tabular-nums">08</span>
+                <h3 style="margin:0;font:700 19px/1.3 'Public Sans',sans-serif;color:#272727">BambooHR</h3>
+                <span style="font:400 14px/1.4 'Public Sans',sans-serif;color:#8d8d8d">Clean people database for US-centric teams</span>
+              </div>
+              <p style="margin:0;font:400 15.5px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Well-liked for records, onboarding and time off. It has no India statutory payroll — no PF, ESI, PT or TDS — and multiple verified reviewers describe it straining past 50 employees. Fine for a US-registered entity, wrong for an Indian one.</p>
+            </div>
+            <div style="background:#fff;border:1px solid #e4e4e4;border-radius:14px;padding:22px 24px">
+              <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:8px">
+                <span style="font:600 12px/1 'Public Sans',sans-serif;color:#8d8d8d;font-variant-numeric:tabular-nums">09</span>
+                <h3 style="margin:0;font:700 19px/1.3 'Public Sans',sans-serif;color:#272727">Deel</h3>
+                <span style="font:400 14px/1.4 'Public Sans',sans-serif;color:#8d8d8d">Global EOR and contractor compliance</span>
+              </div>
+              <p style="margin:0 0 12px;font:400 15.5px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">The default brand in cross-border hiring: EOR at $599 per employee per month, contractors at $49. Excellent at the job it does.</p>
+              <p style="margin:0;font:400 15.5px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty"><strong style="color:#272727;font-weight:600">Do not buy Deel for an India-only team.</strong> One EOR employee at $599 a month costs roughly ₹50,000 — more than most Indian HRMS platforms charge for 200 people.</p>
+            </div>
+            <div style="background:#fff;border:1px solid #e4e4e4;border-radius:14px;padding:22px 24px">
+              <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:8px">
+                <span style="font:600 12px/1 'Public Sans',sans-serif;color:#8d8d8d;font-variant-numeric:tabular-nums">10</span>
+                <h3 style="margin:0;font:700 19px/1.3 'Public Sans',sans-serif;color:#272727">Rippling</h3>
+                <span style="font:400 14px/1.4 'Public Sans',sans-serif;color:#8d8d8d">Unified HR and IT provisioning</span>
+              </div>
+              <p style="margin:0;font:400 15.5px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Issues software access and laptops from the same record that holds employment data, which suits distributed tech teams tired of onboarding someone twice. India statutory payroll is not its native strength and India pricing is not published.</p>
+            </div>
+          </div>
+        </section>
+
+        <div data-cta="split" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:#e4e4e4;border:1px solid #e4e4e4;border-radius:14px;overflow:hidden;margin:48px 0 4px">
+          <div style="background:#fff;padding:26px 28px">
+            <p style="margin:0 0 10px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#02563d">Shortlist of one</p>
+            <h3 style="margin:0 0 8px;font:800 21px/1.28 'Public Sans',sans-serif;letter-spacing:-0.018em;color:#272727;text-wrap:pretty">Put HROne against your hardest payroll month</h3>
+            <p style="margin:0 0 20px;font:400 14.5px/1.6 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Bring two states, one arrear and one exit clearance. We run it live in the sandbox.</p>
+            <a href="https://hrone.cloud/pricing/" style="border:0;display:inline-block;background:#e56046;color:#fff;font:600 14.5px/1 'Public Sans',sans-serif;padding:14px 20px;border-radius:10px;transition:background 140ms" style-hover="background:#d24d33">Book a working demo</a>
+          </div>
+          <div style="background:#02563d;padding:26px 28px;display:flex;flex-direction:column;justify-content:center;gap:18px;font-variant-numeric:tabular-nums">
+            <div>
+              <p style="margin:0;font:800 26px/1 'Public Sans',sans-serif;color:#fff">30 days</p>
+              <p style="margin:4px 0 0;font:400 13.5px/1.4 'Public Sans',sans-serif;color:#96bead">Typical go-live, core four modules</p>
+            </div>
+            <div style="height:1px;background:rgba(255,255,255,0.16)"></div>
+            <div>
+              <p style="margin:0;font:800 26px/1 'Public Sans',sans-serif;color:#fff">₹0</p>
+              <p style="margin:4px 0 0;font:400 13.5px/1.4 'Public Sans',sans-serif;color:#96bead">Billed before you go live. No lock-in.</p>
+            </div>
+          </div>
+        </div>
+
+        <section id="cost" style="scroll-margin-top:104px;padding-top:48px">
+          <p style="margin:0 0 10px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#02563d">Budget</p>
+          <h2 style="margin:0 0 8px;font:800 27px/1.22 'Public Sans',sans-serif;letter-spacing:-0.021em;color:#272727">What this actually costs at 100 and 200</h2>
+          <p style="margin:0 0 20px;font:400 16.5px/1.75 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Published list rates only, before implementation fees and add-ons. Add 18% GST to every figure below before you compare anything.</p>
+          <div style="border:1px solid #e4e4e4;border-radius:14px;overflow:hidden;background:#fff;margin-bottom:12px">
+            <table style="width:100%;border-collapse:collapse;font:400 14px/1.5 'Public Sans',sans-serif;font-variant-numeric:tabular-nums">
+              <thead>
+                <tr style="background:#f8f6f0">
+                  <th style="text-align:left;padding:13px 18px;font:600 12px/1.2 'Public Sans',sans-serif;letter-spacing:0.04em;text-transform:uppercase;color:#535353;border-bottom:1px solid #e4e4e4">Vendor</th>
+                  <th style="text-align:right;padding:13px 18px;font:600 12px/1.2 'Public Sans',sans-serif;letter-spacing:0.04em;text-transform:uppercase;color:#535353;border-bottom:1px solid #e4e4e4">At 100</th>
+                  <th style="text-align:right;padding:13px 18px;font:600 12px/1.2 'Public Sans',sans-serif;letter-spacing:0.04em;text-transform:uppercase;color:#535353;border-bottom:1px solid #e4e4e4">At 200</th>
+                  <th style="text-align:right;padding:13px 18px;font:600 12px/1.2 'Public Sans',sans-serif;letter-spacing:0.04em;text-transform:uppercase;color:#535353;border-bottom:1px solid #e4e4e4">Post-GST at 200</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;font-weight:600;color:#02563d">HROne</td><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;text-align:right">₹8,500</td><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;text-align:right">₹17,000</td><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;text-align:right">₹20,060</td></tr>
+                <tr style="background:#fdfaf3"><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;font-weight:600">Keka</td><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;text-align:right">₹9,999</td><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;text-align:right">₹18,999</td><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;text-align:right">₹22,419</td></tr>
+                <tr><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;font-weight:600">greytHR</td><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;text-align:right">₹4,745</td><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;text-align:right">₹9,245</td><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;text-align:right">₹10,909</td></tr>
+                <tr style="background:#fdfaf3"><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;font-weight:600">Zoho People</td><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;text-align:right">₹5,000</td><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;text-align:right">₹10,000</td><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;text-align:right">₹11,800</td></tr>
+                <tr><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;font-weight:600">Zimyo</td><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;text-align:right">₹5,000</td><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;text-align:right">₹10,000</td><td style="padding:13px 18px;border-bottom:1px solid #e4e4e4;text-align:right">₹11,800</td></tr>
+                <tr style="background:#fdfaf3"><td style="padding:13px 18px;font-weight:600">Kredily (Payroll OS)</td><td style="padding:13px 18px;text-align:right">₹5,000</td><td style="padding:13px 18px;text-align:right">₹10,000</td><td style="padding:13px 18px;text-align:right">₹11,800</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin:0 0 40px;font:400 13px/1.6 'Public Sans',sans-serif;color:#8d8d8d">Zoho and Zimyo figures exclude India payroll, which is priced separately. factoHR, BambooHR, Deel and Rippling do not publish comparable INR rates.</p>
+        </section>
+
+        <section id="checklist" style="scroll-margin-top:104px;border-top:1px solid #e4e4e4;padding-top:48px">
+          <p style="margin:0 0 10px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#02563d">Demo checklist</p>
+          <h2 style="margin:0 0 8px;font:800 27px/1.22 'Public Sans',sans-serif;letter-spacing:-0.021em;color:#272727">Seven things to make them show you live</h2>
+          <p style="margin:0 0 24px;font:400 16.5px/1.75 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Not slides. Ask for these on screen, in a sandbox with your own data, in one demo.</p>
+          <ol style="margin:0 0 32px;padding:0;list-style:none;display:flex;flex-direction:column;gap:1px;background:#e4e4e4;border:1px solid #e4e4e4;border-radius:14px;overflow:hidden;counter-reset:demo">
+            <li style="background:#fff;padding:16px 20px;display:flex;gap:14px"><span style="font:600 13px/1.5 'Public Sans',sans-serif;color:#02563d;min-width:18px;font-variant-numeric:tabular-nums">1</span><span style="font:400 15.5px/1.6 'Public Sans',sans-serif;color:#272727"><strong style="font-weight:600">Generate a live EPF ECR file</strong> from a sample month and open it.</span></li>
+            <li style="background:#fff;padding:16px 20px;display:flex;gap:14px"><span style="font:600 13px/1.5 'Public Sans',sans-serif;color:#02563d;min-width:18px;font-variant-numeric:tabular-nums">2</span><span style="font:400 15.5px/1.6 'Public Sans',sans-serif;color:#272727"><strong style="font-weight:600">Cross an employee over the ESIC wage ceiling</strong> mid-cycle and show what the system does.</span></li>
+            <li style="background:#fff;padding:16px 20px;display:flex;gap:14px"><span style="font:600 13px/1.5 'Public Sans',sans-serif;color:#02563d;min-width:18px;font-variant-numeric:tabular-nums">3</span><span style="font:400 15.5px/1.6 'Public Sans',sans-serif;color:#272727"><strong style="font-weight:600">Run PT and LWF for two states</strong> in the same payroll run.</span></li>
+            <li style="background:#fff;padding:16px 20px;display:flex;gap:14px"><span style="font:600 13px/1.5 'Public Sans',sans-serif;color:#02563d;min-width:18px;font-variant-numeric:tabular-nums">4</span><span style="font:400 15.5px/1.6 'Public Sans',sans-serif;color:#272727"><strong style="font-weight:600">Release a Form 16</strong> to an employee's own document section, end to end.</span></li>
+            <li style="background:#fff;padding:16px 20px;display:flex;gap:14px"><span style="font:600 13px/1.5 'Public Sans',sans-serif;color:#02563d;min-width:18px;font-variant-numeric:tabular-nums">5</span><span style="font:400 15.5px/1.6 'Public Sans',sans-serif;color:#272727"><strong style="font-weight:600">Back-date a CTC revision</strong> and show the arrear-day calculation it produces.</span></li>
+            <li style="background:#fff;padding:16px 20px;display:flex;gap:14px"><span style="font:600 13px/1.5 'Public Sans',sans-serif;color:#02563d;min-width:18px;font-variant-numeric:tabular-nums">6</span><span style="font:400 15.5px/1.6 'Public Sans',sans-serif;color:#272727"><strong style="font-weight:600">Add a second legal entity</strong> live, and state the cap on entity count in writing.</span></li>
+            <li style="background:#fff;padding:16px 20px;display:flex;gap:14px"><span style="font:600 13px/1.5 'Public Sans',sans-serif;color:#02563d;min-width:18px;font-variant-numeric:tabular-nums">7</span><span style="font:400 15.5px/1.6 'Public Sans',sans-serif;color:#272727"><strong style="font-weight:600">Export everything and leave.</strong> Ask what you get, in what format, and how long they retain it.</span></li>
+          </ol>
+        </section>
+
+        <section id="faq" style="scroll-margin-top:104px;border-top:1px solid #e4e4e4;padding-top:48px">
+          <p style="margin:0 0 10px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#02563d">Questions</p>
+          <h2 style="margin:0 0 24px;font:800 27px/1.22 'Public Sans',sans-serif;letter-spacing:-0.021em;color:#272727">Frequently asked</h2>
+          <div style="display:flex;flex-direction:column;gap:24px;margin-bottom:44px">
+            <div>
+              <h3 style="margin:0 0 8px;font:700 17px/1.35 'Public Sans',sans-serif;color:#272727">At what headcount should a startup move off spreadsheets?</h3>
+              <p style="margin:0;font:400 16px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Usually between 20 and 30 people, or the first month you run payroll across two states. Below that, a free tier handles it. Above it, the reconciliation time costs more than the subscription.</p>
+            </div>
+            <div>
+              <h3 style="margin:0 0 8px;font:700 17px/1.35 'Public Sans',sans-serif;color:#272727">Will we have to re-implement when we cross 200?</h3>
+              <p style="margin:0;font:400 16px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Only if the system caps entities, workflow branching or access layers. Ask for those three limits in writing before you sign — they are the ones that force a migration, not employee count.</p>
+            </div>
+            <div>
+              <h3 style="margin:0 0 8px;font:700 17px/1.35 'Public Sans',sans-serif;color:#272727">Is a free HRMS safe for payroll?</h3>
+              <p style="margin:0;font:400 16px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">For statutory basics under 25 people, yes. Read the storage cap and inactivity policy first — a free account that deactivates after three months of quiet is not an archive of your payroll history.</p>
+            </div>
+            <div>
+              <h3 style="margin:0 0 8px;font:700 17px/1.35 'Public Sans',sans-serif;color:#272727">How long does go-live actually take?</h3>
+              <p style="margin:0;font:400 16px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Thirty days is realistic for a core four-module setup — Core HR, Workforce, Time Office and Payroll — when your employee master is clean. Dirty master data, not software, is what stretches timelines.</p>
+            </div>
+          </div>
+        </section>
+
+        <section style="position:relative;overflow:hidden;background:#013A29;border-radius:14px;padding:44px 40px 40px">
+          <div data-ctagrid="1" style="display:grid;grid-template-columns:minmax(320px,1fr) minmax(0,268px);gap:36px;align-items:center;margin-bottom:30px">
+            <div>
+              <img src="assets/hrone-logo-white.png" alt="HROne" style="display:block;height:30px;width:auto;margin:0 0 20px">
+              <p style="margin:0 0 10px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#96bead">Next step</p>
+              <h2 style="margin:0 0 14px;font:800 34px/1.16 'Public Sans',sans-serif;letter-spacing:-0.021em;color:#fff;max-width:18ch;text-wrap:pretty">Don't buy the demo. Bring <span style="color:#fbb887">your own payroll month</span>.</h2>
+              <p style="margin:0 0 28px;font:400 16.5px/1.7 'Public Sans',sans-serif;color:#caddd5;max-width:52ch;text-wrap:pretty">Two states, one arrear, one exit clearance — run it against the seven checks above before anyone signs anything. Subscription meters only after go-live, and there is no lock-in period.</p>
+              <div style="display:flex;gap:12px;flex-wrap:nowrap;align-items:center">
+                <a href="https://hrone.cloud/pricing/" style="border:0;white-space:nowrap;background:#fff;color:#02563d;font:600 15px/1 'Public Sans',sans-serif;padding:16px 28px;border-radius:10px;transition:background 140ms" style-hover="background:#e3ede8">Book a demo</a>
+                <a href="https://hrone.cloud/tools/roi-calculator/" style="white-space:nowrap;border:1px solid rgba(255,255,255,0.4);color:#fff;font:500 15px/1 'Public Sans',sans-serif;padding:15px 24px;border-radius:10px;transition:border-color 140ms" style-hover="border-color:#ffffff">Calculate your ROI</a>
+              </div>
+            </div>
+
+            <div style="background:#fff;border-radius:12px;padding:14px;box-shadow:0 12px 28px rgba(0,0,0,0.22)">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:12px;border-bottom:1px solid #e4e4e4;margin-bottom:12px">
+                <span style="font:700 12px/1.2 'Public Sans',sans-serif;color:#013A29;letter-spacing:-0.01em">Inbox for HR</span>
+                <span style="font:600 10.5px/1 'Public Sans',sans-serif;color:#02563d;background:#e3ede8;padding:5px 8px;border-radius:999px;font-variant-numeric:tabular-nums">7 pending</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:9px">
+                <div style="display:flex;align-items:center;gap:9px;padding:9px 10px;border:1px solid #e4e4e4;border-radius:8px">
+                  <span style="width:22px;height:22px;border-radius:999px;background:#e3ede8;flex:none"></span>
+                  <span style="display:flex;flex-direction:column;gap:5px;flex:1"><span style="height:7px;width:76%;background:#e4e4e4;border-radius:4px"></span><span style="height:6px;width:48%;background:#f2f2f2;border-radius:4px"></span></span>
+                  <span style="font:600 10px/1 'Public Sans',sans-serif;color:#02563d;background:#e3ede8;padding:4px 7px;border-radius:999px;flex:none">Approve</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:9px;padding:9px 10px;border:1px solid #e4e4e4;border-radius:8px">
+                  <span style="width:22px;height:22px;border-radius:999px;background:#f9f0e6;flex:none"></span>
+                  <span style="display:flex;flex-direction:column;gap:5px;flex:1"><span style="height:7px;width:62%;background:#e4e4e4;border-radius:4px"></span><span style="height:6px;width:38%;background:#f2f2f2;border-radius:4px"></span></span>
+                  <span style="font:600 10px/1 'Public Sans',sans-serif;color:#b0561f;background:#f9f0e6;padding:4px 7px;border-radius:999px;flex:none">Arrear</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:9px;padding:9px 10px;border:1px solid #e4e4e4;border-radius:8px">
+                  <span style="width:22px;height:22px;border-radius:999px;background:#f2f2f2;flex:none"></span>
+                  <span style="display:flex;flex-direction:column;gap:5px;flex:1"><span style="height:7px;width:70%;background:#e4e4e4;border-radius:4px"></span><span style="height:6px;width:44%;background:#f2f2f2;border-radius:4px"></span></span>
+                  <span style="font:600 10px/1 'Public Sans',sans-serif;color:#535353;background:#f2f2f2;padding:4px 7px;border-radius:999px;flex:none">Exit</span>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid #e4e4e4">
+                <span style="font:400 10.5px/1.2 'Public Sans',sans-serif;color:#8d8d8d">Payroll · Aug 2026</span>
+                <span style="font:700 11px/1.2 'Public Sans',sans-serif;color:#013A29;font-variant-numeric:tabular-nums">Closed in 3 clicks</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="position:relative">
+            <div style="display:flex;flex-wrap:wrap;gap:14px 32px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.18);font-variant-numeric:tabular-nums">
+              <div><p style="margin:0;font:700 22px/1.2 'Public Sans',sans-serif;color:#fff">4.8/5</p><p style="margin:2px 0 0;font:400 13px/1.4 'Public Sans',sans-serif;color:#96bead">2,074 G2 reviews</p></div>
+              <div><p style="margin:0;font:700 22px/1.2 'Public Sans',sans-serif;color:#fff">9.8</p><p style="margin:2px 0 0;font:400 13px/1.4 'Public Sans',sans-serif;color:#96bead">Support NPS</p></div>
+              <div><p style="margin:0;font:700 22px/1.2 'Public Sans',sans-serif;color:#fff">30 days</p><p style="margin:2px 0 0;font:400 13px/1.4 'Public Sans',sans-serif;color:#96bead">Core four modules live</p></div>
+              <div><p style="margin:0;font:700 22px/1.2 'Public Sans',sans-serif;color:#fff">127</p><p style="margin:2px 0 0;font:400 13px/1.4 'Public Sans',sans-serif;color:#96bead">Pre-built workflows</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section data-author="1" style="margin:56px 0 0;padding-top:8px;text-align:center">
+          <div style="position:relative;height:104px;margin-bottom:20px">
+            <div style="position:absolute;top:50%;left:0;right:0;height:0;border-top:2px dashed #cfe0d8"></div>
+            <div style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:104px;height:104px;border-radius:999px;background:#e56046;box-shadow:0 0 0 8px #FFFCF3;overflow:hidden">
+              <span style="font:700 36px/1 'Public Sans',sans-serif;letter-spacing:0.01em;color:#fff">KK</span>
+            </div>
+          </div>
+          <p style="margin:0 0 6px;font:800 25px/1.2 'Public Sans',sans-serif;letter-spacing:-0.02em;color:#272727">Krishna Kaanth</p>
+          <p style="margin:0 0 14px;font:500 14px/1.2 'Public Sans',sans-serif;color:#4b6b5f">Content Lead, HROne</p>
+          <div style="display:flex;justify-content:center;gap:8px;margin-bottom:22px">
+            <a href="https://www.linkedin.com/in/krishna-kaanth/" target="_blank" rel="noopener" style="border:1px solid #d5e4dd;display:inline-flex;align-items:center;gap:7px;background:#eef4f1;color:#02563d;font:600 12.5px/1 'Public Sans',sans-serif;padding:8px 13px;border-radius:999px;transition:background 140ms" style-hover="background:#e0ebe6"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.07-1.95-3.07-1.95 0-2.25 1.46-2.25 2.97V21h-4z"></path></svg>Connect</a>
+            <a href="https://hrone.cloud/blog/author/krishna-kaanth/" style="border:1px solid #e4e4e4;display:inline-flex;align-items:center;background:#fff;color:#535353;font:600 12.5px/1 'Public Sans',sans-serif;padding:8px 13px;border-radius:999px;transition:background 140ms,color 140ms" style-hover="background:#eef4f1;color:#02563d">All posts</a>
+          </div>
+          <p style="margin:0 auto;max-width:60ch;font:400 15.5px/1.7 'Public Sans',sans-serif;color:#535353;text-wrap:pretty">Krishna writes on HR technology buying for Indian startups and mid-market teams. He has sat through 200+ HRMS evaluations alongside founders and HR leads, and tracks statutory change across PF, ESI, PT and the four labour codes so buyers do not learn about it during their first payroll run.</p>
+        </section>
+
+      </main>
+
+      <aside data-rail="1" style="position:sticky;top:96px;display:flex;flex-direction:column;gap:16px">
+        <div style="position:relative;overflow:hidden;background:#013A29;border-radius:14px;padding:24px">
+          <img src="uploads/iccc.png" alt="HROne" width="52" height="52" style="position:relative;display:block;width:52px;height:52px;margin:0 0 18px">
+          <p style="margin:0 0 8px;position:relative;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#96bead">See it on your data</p>
+          <p style="margin:0 0 10px;font:700 19px/1.28 'Public Sans',sans-serif;color:#fff;text-wrap:pretty">Run one payroll cycle before you decide</p>
+          <p style="margin:0 0 18px;font:400 14px/1.6 'Public Sans',sans-serif;color:#caddd5">30-day go-live on the core four modules. Billing starts after go-live. No lock-in.</p>
+          <a href="https://hrone.cloud/pricing/" style="border:0;display:block;text-align:center;background:#e56046;color:#ffffff;font:600 14.5px/1 'Public Sans',sans-serif;padding:14px 18px;border-radius:10px;transition:background 140ms" style-hover="background:#d24d33">Book a demo</a>
+          <a href="https://hrone.cloud/pricing/" style="border:0;display:block;text-align:center;margin-top:10px;color:#96bead;font:500 13.5px/1 'Public Sans',sans-serif;padding:6px" style-hover="color:#ffffff">See pricing →</a>
+        </div>
+
+        <div style="background:#fff;border:1px solid #e4e4e4;border-radius:14px;padding:20px">
+          <p style="margin:0 0 14px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#8d8d8d">Cost at 200 employees</p>
+          <div style="display:flex;flex-direction:column;gap:9px;font:400 14px/1.4 'Public Sans',sans-serif;font-variant-numeric:tabular-nums">
+            <div style="display:flex;justify-content:space-between;gap:12px"><span style="color:#02563d;font-weight:600">HROne</span><span style="color:#272727">₹17,000</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px"><span style="color:#535353">Keka</span><span style="color:#272727">₹18,999</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px"><span style="color:#535353">greytHR</span><span style="color:#272727">₹9,245</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px"><span style="color:#535353">Zoho People</span><span style="color:#272727">₹10,000</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px"><span style="color:#535353">Zimyo</span><span style="color:#272727">₹10,000</span></div>
+          </div>
+          <p style="margin:14px 0 0;padding-top:12px;border-top:1px solid #e4e4e4;font:400 12.5px/1.5 'Public Sans',sans-serif;color:#8d8d8d">Pre-GST list rates. Zoho and Zimyo exclude payroll.</p>
+        </div>
+
+        <div style="background:#fff;border:1px solid #e4e4e4;border-radius:14px;padding:20px">
+          <p style="margin:0 0 14px;font:600 11px/1.2 'Public Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#8d8d8d">Keep reading</p>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a href="https://hrone.cloud/blog/hr-software-pricing/" style="border:0;display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;color:#272727" style-hover="color:#02563d"><image-slot id="kr1" style="width:64px;height:48px" radius="8" placeholder=""></image-slot><span style="min-width:0"><span style="display:block;font:500 13.5px/1.4 'Public Sans',sans-serif;color:inherit">HR software pricing in India, decoded</span><span style="display:block;margin-top:3px;font:400 12px/1 'Public Sans',sans-serif;color:#8d8d8d">6 min read</span></span></a>
+            <a href="https://hrone.cloud/blog/hrms-implementation-timeline-india/" style="border:0;display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;color:#272727" style-hover="color:#02563d"><image-slot id="kr2" style="width:64px;height:48px" radius="8" placeholder=""></image-slot><span style="min-width:0"><span style="display:block;font:500 13.5px/1.4 'Public Sans',sans-serif;color:inherit">A realistic HRMS implementation timeline</span><span style="display:block;margin-top:3px;font:400 12px/1 'Public Sans',sans-serif;color:#8d8d8d">9 min read</span></span></a>
+            <a href="https://hrone.cloud/blog/multi-state-payroll-compliance-india/" style="border:0;display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;color:#272727" style-hover="color:#02563d"><image-slot id="kr3" style="width:64px;height:48px" radius="8" placeholder=""></image-slot><span style="min-width:0"><span style="display:block;font:500 13.5px/1.4 'Public Sans',sans-serif;color:inherit">Multi-state payroll compliance guide</span><span style="display:block;margin-top:3px;font:400 12px/1 'Public Sans',sans-serif;color:#8d8d8d">11 min read</span></span></a>
+            <a href="https://hrone.cloud/blog/keka-hrms-review/" style="border:0;display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;color:#272727" style-hover="color:#02563d"><image-slot id="kr4" style="width:64px;height:48px" radius="8" placeholder=""></image-slot><span style="min-width:0"><span style="display:block;font:500 13.5px/1.4 'Public Sans',sans-serif;color:inherit">Keka HRMS review</span><span style="display:block;margin-top:3px;font:400 12px/1 'Public Sans',sans-serif;color:#8d8d8d">7 min read</span></span></a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <footer style="background:#fff;border-top:1px solid #e4e4e4">
+    <div style="max-width:1400px;margin:0 auto;padding:28px 40px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;font:400 13.5px/1.5 'Public Sans',sans-serif;color:#8d8d8d">
+      <span>© 2026 HROne · Uneecops Workplace Solutions Pvt. Ltd.</span>
+      <div style="display:flex;gap:20px">
+        <a href="https://hrone.cloud/blog" style="color:#535353;border:0">Blog</a>
+        <a href="https://hrone.cloud/guide" style="color:#535353;border:0">Guides</a>
+        <a href="https://hrone.cloud/hr-glossary" style="color:#535353;border:0">Glossary</a>
+        <a href="https://hrone.cloud/pricing/" style="color:#535353;border:0">Pricing</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#02563d&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#02563d&quot;,&quot;#167152&quot;,&quot;#e56046&quot;],&quot;section&quot;:&quot;Theme&quot;}}">
+class Component extends DCLogic {
+  state = { activeId: "answer", progress: 0, showFull: false };
+
+  sections() {
+    return [
+      { id: "answer", label: "The short answer" },
+      { id: "criteria", label: "How we evaluated" },
+      { id: "table", label: "Master comparison" },
+      { id: "hrone", label: "01 · HROne" },
+      { id: "keka", label: "02 · Keka" },
+      { id: "greythr", label: "03 · greytHR" },
+      { id: "zoho", label: "04 · Zoho People" },
+      { id: "zimyo", label: "05 · Zimyo" },
+      { id: "rest", label: "06–10 · Specialists" },
+      { id: "cost", label: "Cost at 100 & 200" },
+      { id: "checklist", label: "Demo checklist" },
+      { id: "faq", label: "FAQs" }
+    ];
+  }
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+      let activeId = this.sections()[0].id;
+      for (const s of this.sections()) {
+        const el = document.getElementById(s.id);
+        if (el && el.getBoundingClientRect().top <= 140) activeId = s.id;
+      }
+      if (activeId !== this.state.activeId || Math.abs(progress - this.state.progress) > 0.002) {
+        this.setState({ activeId, progress });
+      }
+    };
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+    this.onScroll();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll);
+  }
+
+  renderVals() {
+    const accent = this.props.accentColor ?? "#02563d";
+    const toc = this.sections().map(s => {
+      const on = s.id === this.state.activeId;
+      return {
+        href: "#" + s.id,
+        label: s.label,
+        style: {
+          display: "block",
+          padding: "7px 0 7px 14px",
+          borderLeft: "2px solid " + (on ? accent : "#e4e4e4"),
+          borderBottom: "0",
+          font: (on ? "600" : "400") + " 13.5px/1.4 'Public Sans', sans-serif",
+          color: on ? accent : "#535353",
+          textDecoration: "none",
+          transition: "color 140ms linear, border-color 140ms linear"
+        }
+      };
+    });
+    const on = this.state.showFull;
+    return {
+      toc,
+      showFull: on,
+      toggleFull: () => this.setState(s => ({ showFull: !s.showFull })),
+      trackStyle: {
+        width: "58px",
+        height: "32px",
+        borderRadius: "999px",
+        border: "1px solid " + (on ? "#fbb887" : "rgba(255,255,255,0.3)"),
+        background: on ? "#fbb887" : "rgba(255,255,255,0.14)",
+        padding: "0",
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        transition: "background 160ms linear, border-color 160ms linear"
+      },
+      knobStyle: {
+        display: "block",
+        width: "24px",
+        height: "24px",
+        borderRadius: "999px",
+        background: "#fff",
+        transform: on ? "translateX(30px)" : "translateX(3px)",
+        boxShadow: "0 1px 2px rgba(16,24,32,0.2)",
+        transition: "transform 160ms linear"
+      },
+      progressStyle: {
+        height: "2px",
+        width: (this.state.progress * 100).toFixed(2) + "%",
+        background: accent,
+        transition: "width 90ms linear"
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
