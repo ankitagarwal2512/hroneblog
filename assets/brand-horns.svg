@@ -1,0 +1,11 @@
+<svg width="1000" height="700" viewBox="0 0 1000 700" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid meet">
+  
+  <g fill="white">
+    
+    <path d="M0 80&#xA;             L0 160&#xA;             C 180 180, 340 160, 500 120&#xA;             C 640 86, 780 70, 900 70&#xA;             L 960 70&#xA;             L 920 140&#xA;             L 880 140&#xA;             C 780 140, 640 154, 500 188&#xA;             C 340 228, 180 248, 0 230&#xA;             Z" transform="translate(0,0)"></path>
+    
+    <path d="M0 230&#xA;             L0 310&#xA;             C 180 330, 340 310, 500 270&#xA;             C 640 236, 780 220, 900 220&#xA;             L 960 220&#xA;             L 920 290&#xA;             L 880 290&#xA;             C 780 290, 640 304, 500 338&#xA;             C 340 378, 180 398, 0 380&#xA;             Z"></path>
+    
+    <path d="M0 380&#xA;             L0 460&#xA;             C 180 480, 340 460, 500 420&#xA;             C 640 386, 780 370, 900 370&#xA;             L 960 370&#xA;             L 920 440&#xA;             L 880 440&#xA;             C 780 440, 640 454, 500 488&#xA;             C 340 528, 180 548, 0 530&#xA;             Z"></path>
+  </g>
+</svg>

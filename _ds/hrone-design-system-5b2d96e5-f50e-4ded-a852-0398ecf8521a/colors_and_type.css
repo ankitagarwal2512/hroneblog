@@ -1,0 +1,224 @@
+/* =========================================================================
+   HROne Design System — Colors & Type Tokens
+   Source: HROne Brand Guidelines v1.1 (in /assets/brand)
+   ========================================================================= */
+
+/* ---------- FONT FACES ---------- */
+
+@font-face { font-family: "Clash Grotesk"; font-weight: 200; font-style: normal; font-display: swap;
+  src: url("assets/fonts/ClashGrotesk-Extralight.woff2") format("woff2"); }
+@font-face { font-family: "Clash Grotesk"; font-weight: 300; font-style: normal; font-display: swap;
+  src: url("assets/fonts/ClashGrotesk-Light.woff2") format("woff2"); }
+@font-face { font-family: "Clash Grotesk"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("assets/fonts/ClashGrotesk-Regular.woff2") format("woff2"); }
+@font-face { font-family: "Clash Grotesk"; font-weight: 500; font-style: normal; font-display: swap;
+  src: url("assets/fonts/ClashGrotesk-Medium.woff2") format("woff2"); }
+@font-face { font-family: "Clash Grotesk"; font-weight: 600; font-style: normal; font-display: swap;
+  src: url("assets/fonts/ClashGrotesk-Semibold.woff2") format("woff2"); }
+@font-face { font-family: "Clash Grotesk"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("assets/fonts/ClashGrotesk-Bold.woff2") format("woff2"); }
+
+@font-face { font-family: "Public Sans"; font-weight: 300; font-style: normal; font-display: swap;
+  src: url("assets/fonts/PublicSans-Light.woff2") format("woff2"); }
+@font-face { font-family: "Public Sans"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("assets/fonts/PublicSans-Regular.woff2") format("woff2"); }
+@font-face { font-family: "Public Sans"; font-weight: 400; font-style: italic; font-display: swap;
+  src: url("assets/fonts/PublicSans-Italic.woff2") format("woff2"); }
+@font-face { font-family: "Public Sans"; font-weight: 500; font-style: normal; font-display: swap;
+  src: url("assets/fonts/PublicSans-Medium.woff2") format("woff2"); }
+@font-face { font-family: "Public Sans"; font-weight: 600; font-style: normal; font-display: swap;
+  src: url("assets/fonts/PublicSans-SemiBold.woff2") format("woff2"); }
+@font-face { font-family: "Public Sans"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("assets/fonts/PublicSans-Bold.woff2") format("woff2"); }
+@font-face { font-family: "Public Sans"; font-weight: 800; font-style: normal; font-display: swap;
+  src: url("assets/fonts/PublicSans-ExtraBold.woff2") format("woff2"); }
+
+/* ---------- TOKENS ---------- */
+
+:root {
+  /* ----- PRIMARY BRAND ----- */
+  --hrone-green: #02563d;          /* Pantone 3425 C — signature dark green */
+  --hrone-orange: #e56046;         /* Pantone 7417 C — warm accent */
+
+  /* ----- GREEN SCALE (tints of #02563d) ----- */
+  --green-100: #e3ede8;
+  --green-200: #caddd5;
+  --green-300: #b0cec0;
+  --green-400: #96bead;
+  --green-500: #7daf9a;
+  --green-600: #659e87;
+  --green-700: #499075;
+  --green-800: #2c8064;
+  --green-900: #167152;
+  --green-1000: #02563d;           /* = --hrone-green */
+
+  /* ----- ORANGE SCALE (Pantone 7417 C) ----- */
+  --orange-100: #f8e7e2;
+  --orange-200: #f9d7ce;
+  --orange-300: #f9c7b9;
+  --orange-400: #f7b5a5;
+  --orange-500: #f8a592;
+  --orange-600: #f5937d;
+  --orange-700: #f3816b;
+  --orange-800: #ef7059;
+  --orange-900: #e56046;           /* = --hrone-orange */
+
+  /* ----- SECONDARY: LIGHT-GREEN (Pantone 2242 C) ----- */
+  --lime-100: #e5f5ef;
+  --lime-200: #cdece3;
+  --lime-300: #b1e4d5;
+  --lime-400: #97dac6;
+  --lime-500: #7cd1b8;
+  --lime-600: #59c7ad;
+  --lime-700: #36be9e;
+  --lime-800: #17b591;
+  --lime-900: #00ab86;
+  --lime-1000: #009f78;
+
+  /* ----- SECONDARY: PEACH (Pantone 713 C) ----- */
+  --peach-100: #f8f6f0;
+  --peach-200: #f9f0e6;
+  --peach-300: #f8ead9;
+  --peach-400: #fae4cd;
+  --peach-500: #fcddc0;
+  --peach-600: #fcd8b6;
+  --peach-700: #fcd0a9;
+  --peach-800: #f7ca9d;
+  --peach-900: #fac393;
+  --peach-1000: #fbb887;
+
+  /* ----- SECONDARY: YELLOW (Pantone 1215 C) ----- */
+  --yellow-100: #fffaf0;
+  --yellow-200: #fcf6e2;
+  --yellow-300: #fcf3d5;
+  --yellow-400: #fdeec5;
+  --yellow-500: #f9ebb8;
+  --yellow-600: #f9e6ab;
+  --yellow-700: #f9e29c;
+  --yellow-800: #f8de8f;
+  --yellow-900: #f6da81;
+  --yellow-1000: #f8d772;
+
+  /* ----- SECONDARY: PINK (Pantone 251 C) ----- */
+  --pink-100: #f5f4f8;
+  --pink-200: #f4eaf7;
+  --pink-300: #f5e1f4;
+  --pink-400: #efd6f3;
+  --pink-500: #efcdee;
+  --pink-600: #ebc2ea;
+  --pink-700: #e7b8e8;
+  --pink-800: #e5afe4;
+  --pink-900: #e2a4e2;
+  --pink-1000: #dd9ade;
+
+  /* ----- NEUTRALS (from guideline greys) ----- */
+  --ink-1000: #272727;             /* Near-black, body copy */
+  --ink-900:  #3a3a3a;
+  --ink-700:  #535353;             /* Secondary text */
+  --ink-500:  #8d8d8d;             /* Muted text / icons */
+  --ink-300:  #c7c7c7;             /* Hairline border */
+  --ink-200:  #e4e4e4;             /* Divider */
+  --ink-100:  #f2f2f2;             /* Surface-alt */
+  --ink-50:   #f7f7f5;             /* Page background (warm off-white) */
+  --white:    #ffffff;
+
+  /* ----- SEMANTIC ----- */
+  --bg:               var(--ink-50);
+  --surface:          var(--white);
+  --surface-raised:   var(--white);
+  --surface-sunken:   var(--ink-100);
+  --surface-brand:    var(--hrone-green);
+  --surface-brand-subtle: var(--green-100);
+
+  --fg:        var(--ink-1000);
+  --fg-muted:  var(--ink-700);
+  --fg-subtle: var(--ink-500);
+  --fg-on-brand: var(--white);
+
+  --border:         var(--ink-200);
+  --border-strong:  var(--ink-300);
+  --border-focus:   var(--hrone-green);
+
+  --accent:         var(--hrone-green);
+  --accent-hover:   var(--green-900);
+  --accent-active:  #014732;
+  --accent-contrast: var(--white);
+
+  --danger:   #c8392a;             /* derived from orange family, darkened */
+  --warning:  #c98a00;             /* derived from yellow family, darkened */
+  --success:  var(--lime-1000);
+  --info:     #2c6b8f;
+
+  /* ----- RADII ----- */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  /* ----- ELEVATION ----- */
+  --shadow-xs: 0 1px 0 rgba(16, 24, 32, 0.04);
+  --shadow-sm: 0 1px 2px rgba(16, 24, 32, 0.06), 0 1px 1px rgba(16, 24, 32, 0.04);
+  --shadow-md: 0 4px 10px rgba(16, 24, 32, 0.06), 0 2px 4px rgba(16, 24, 32, 0.04);
+  --shadow-lg: 0 12px 28px rgba(16, 24, 32, 0.08), 0 4px 10px rgba(16, 24, 32, 0.04);
+  --shadow-xl: 0 24px 48px rgba(16, 24, 32, 0.12), 0 8px 16px rgba(16, 24, 32, 0.06);
+  --ring-focus: 0 0 0 3px rgba(2, 86, 61, 0.18);
+
+  /* ----- SPACING (4-pt scale) ----- */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* ----- TYPE FAMILIES ----- */
+  --font-display: "Clash Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+
+  /* ----- TYPE SCALE (display = Clash Semibold; body = Public Sans Regular) ----- */
+  --text-display-xl: 700 72px/1.04 var(--font-display); /* hero */
+  --text-display-lg: 600 56px/1.06 var(--font-display);
+  --text-display-md: 600 44px/1.1  var(--font-display);
+  --text-h1: 600 36px/1.15 var(--font-display);
+  --text-h2: 600 28px/1.2  var(--font-display);
+  --text-h3: 600 22px/1.25 var(--font-display);
+  --text-h4: 600 18px/1.3  var(--font-display);
+  --text-eyebrow: 600 12px/1.2 var(--font-display); /* uppercase, tracked */
+
+  --text-body-lg: 400 18px/1.55 var(--font-body);
+  --text-body:    400 15px/1.55 var(--font-body);
+  --text-body-sm: 400 13px/1.5  var(--font-body);
+  --text-caption: 500 12px/1.45 var(--font-body);
+  --text-overline:600 11px/1.2  var(--font-body);
+  --text-mono:    400 13px/1.5  var(--font-mono);
+
+  --tracking-tight: -0.015em;
+  --tracking-body: 0;
+  --tracking-wide: 0.06em;    /* eyebrows, overlines */
+}
+
+/* ---------- SEMANTIC CLASSES (optional helpers) ---------- */
+
+.hr-display-xl { font: var(--text-display-xl); letter-spacing: var(--tracking-tight); color: var(--fg); }
+.hr-display-lg { font: var(--text-display-lg); letter-spacing: var(--tracking-tight); color: var(--fg); }
+.hr-h1 { font: var(--text-h1); letter-spacing: var(--tracking-tight); color: var(--fg); }
+.hr-h2 { font: var(--text-h2); letter-spacing: var(--tracking-tight); color: var(--fg); }
+.hr-h3 { font: var(--text-h3); color: var(--fg); }
+.hr-h4 { font: var(--text-h4); color: var(--fg); }
+.hr-eyebrow { font: var(--text-eyebrow); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--hrone-green); }
+
+.hr-body-lg { font: var(--text-body-lg); color: var(--fg); }
+.hr-body    { font: var(--text-body);    color: var(--fg); }
+.hr-body-sm { font: var(--text-body-sm); color: var(--fg-muted); }
+.hr-caption { font: var(--text-caption); color: var(--fg-subtle); }
+.hr-overline{ font: var(--text-overline); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--fg-subtle); }
+.hr-mono    { font: var(--text-mono); color: var(--fg); }
