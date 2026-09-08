@@ -1,5 +1,7 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/HR%20Software%20for%20Startups%20-%20Blog%20B.dc.html" }
+    { "source": "/", "destination": "/HR%20Software%20for%20Startups%20-%20Blog%20B.dc.html" },
+    { "source": "/author", "destination": "/Author%20-%20Krishna%20Kaanth.dc.html" },
+    { "source": "/blog/author/krishna-kaanth", "destination": "/Author%20-%20Krishna%20Kaanth.dc.html" }
   ]
 }
